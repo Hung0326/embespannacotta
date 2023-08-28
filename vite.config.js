@@ -7,7 +7,13 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: '/embespannacotta/',
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['md-linedivider'].includes(tag),
+        }
+      }
+    }),
   ],
   resolve: {
     alias: {
